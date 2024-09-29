@@ -5,6 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:payung/feature/home/explore/home_explore.dart';
 import 'package:payung/feature/home/home_page.dart';
 import 'package:payung/feature/home/home_repository.dart';
+import 'package:payung/feature/profile/profile_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -75,16 +76,25 @@ class Payung extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Payung',
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         primaryColor: const Color(0xffF8C20A),
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xffF8C20A),
         ),
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xffF8C20A),
+          backgroundColor: Colors.white,
         ),
+        dropdownMenuTheme: DropdownMenuThemeData(
+          menuStyle: MenuStyle(
+            backgroundColor: WidgetStateProperty.all(Colors.white)
+          )
+        )
       ),
-      home: const HomePage(),
+      routes: {
+        '/': (context) => const HomePage(),
+        '/profile': (context) => const ProfilePage(),
+      },
     );
   }
 }

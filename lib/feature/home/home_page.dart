@@ -90,45 +90,6 @@ class _HomePageState extends State<HomePage> {
     ),
   ];
 
-  // final List<HomeExplore> _explore = [
-  //   HomeExplore(
-  //     name: "Voucher Digital Indomaret",
-  //     price: 25000,
-  //     discountPercentage: 0,
-  //     image: "assets/icon/apple.svg",
-  //   ),
-  //   HomeExplore(
-  //     name: "Voucher Digital H&M",
-  //     price: 100000,
-  //     discountPercentage: 3,
-  //     image: "assets/icon/avocado.svg",
-  //   ),
-  //   HomeExplore(
-  //     name: "Voucher Digital H&M",
-  //     price: 100000,
-  //     discountPercentage: 3,
-  //     image: "assets/icon/banana.svg",
-  //   ),
-  //   HomeExplore(
-  //     name: "Voucher Digital Excelso",
-  //     price: 50000,
-  //     discountPercentage: 4,
-  //     image: "assets/icon/cherry.svg",
-  //   ),
-  //   HomeExplore(
-  //     name: "Voucher Digital Bakmi GM",
-  //     price: 100000,
-  //     discountPercentage: 5,
-  //     image: "assets/icon/coffee.svg",
-  //   ),
-  //   HomeExplore(
-  //     name: "Voucher Digital Haagen Dazs",
-  //     price: 100000,
-  //     discountPercentage: 25,
-  //     image: "assets/icon/dumbbell.svg",
-  //   ),
-  // ];
-
   final List<HomeBottomNavigationMenu> _homeBottomNavigationMenu = [
     HomeBottomNavigationMenu(
       icon: "assets/icon/apple.svg",
@@ -230,19 +191,19 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Row(
                   children: [
-                    SvgAsset(
+                    const SvgAsset(
                       icon: AppIcon.notification,
                       colorFilter:
-                          const ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                      onTap: () {
-                        print("masuk");
-                      },
+                          ColorFilter.mode(Colors.white, BlendMode.srcIn),
                     ),
                     const SizedBox(
                       width: 8,
                     ),
-                    const IconProfile(
+                    IconProfile(
                       name: "E",
+                      onTap: () {
+                        Navigator.pushNamed(context, "/profile");
+                      },
                     ),
                   ],
                 )
@@ -282,7 +243,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const HomeExploreSection(),
                 const SizedBox(
-                  height: 40,
+                  height: 80,
                 )
               ],
             ),
