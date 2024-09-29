@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:payung/widget/svg_asset.dart';
+import 'package:payung/core/widget/svg_asset.dart';
 
 class TextIconButton extends StatelessWidget {
   final String text;

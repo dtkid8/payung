@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widget/svg_asset.dart';
+import '../../core/widget/svg_asset.dart';
 
 class HomeMenuCard extends StatelessWidget {
   final String icon;

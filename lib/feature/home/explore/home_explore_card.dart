@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:payung/etc/extension.dart';
-import 'package:payung/feature/home/model/home_explore.dart';
+import 'package:payung/core/extension.dart';
+import 'package:payung/feature/home/explore/home_explore.dart';
 
-import '../../widget/svg_asset.dart';
+import '../../../core/widget/svg_asset.dart';
 
 class HomeExploreCard extends StatelessWidget {
   final HomeExplore item;

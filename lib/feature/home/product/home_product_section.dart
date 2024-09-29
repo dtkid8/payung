@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:payung/feature/home/model/home_menu.dart';
-import '../../widget/title_section.dart';
-import 'home_menu_card.dart';
+import 'package:payung/feature/home/home_menu.dart';
+import '../../../core/widget/title_section.dart';
+import '../home_menu_card.dart';
 
 class HomeProductSection extends StatelessWidget {
   final List<HomeMenu> product;

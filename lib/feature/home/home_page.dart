@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:payung/feature/home/home_explore_section.dart';
-import 'package:payung/feature/home/model/home_bottom_navigation_menu.dart';
-import 'package:payung/feature/home/model/home_explore.dart';
-import 'package:payung/feature/home/model/home_menu.dart';
-import 'package:payung/feature/home/home_category_section.dart';
-import 'package:payung/feature/home/home_product_section.dart';
-import 'package:payung/widget/icon_profile.dart';
+import 'package:payung/feature/home/explore/home_explore_section.dart';
+import 'package:payung/feature/home/home_bottom_navigation_menu.dart';
+import 'package:payung/feature/home/home_menu.dart';
+import 'package:payung/feature/home/category/home_category_section.dart';
+import 'package:payung/feature/home/product/home_product_section.dart';
+import 'package:payung/core/widget/icon_profile.dart';
 import 'package:payung/feature/home/home_bottom_navigation_bar.dart';
-import '../../etc/app_icon.dart';
-import '../../widget/svg_asset.dart';
+import '../../core/app_icon.dart';
+import '../../core/widget/svg_asset.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  final String title;
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -93,44 +90,44 @@ class _HomePageState extends State<HomePage> {
     ),
   ];
 
-  final List<HomeExplore> _explore = [
-    HomeExplore(
-      name: "Voucher Digital Indomaret",
-      price: 25000,
-      discountPercentage: 0,
-      image: "assets/icon/apple.svg",
-    ),
-    HomeExplore(
-      name: "Voucher Digital H&M",
-      price: 100000,
-      discountPercentage: 3,
-      image: "assets/icon/avocado.svg",
-    ),
-    HomeExplore(
-      name: "Voucher Digital H&M",
-      price: 100000,
-      discountPercentage: 3,
-      image: "assets/icon/banana.svg",
-    ),
-    HomeExplore(
-      name: "Voucher Digital Excelso",
-      price: 50000,
-      discountPercentage: 4,
-      image: "assets/icon/cherry.svg",
-    ),
-    HomeExplore(
-      name: "Voucher Digital Bakmi GM",
-      price: 100000,
-      discountPercentage: 5,
-      image: "assets/icon/coffee.svg",
-    ),
-    HomeExplore(
-      name: "Voucher Digital Haagen Dazs",
-      price: 100000,
-      discountPercentage: 25,
-      image: "assets/icon/dumbbell.svg",
-    ),
-  ];
+  // final List<HomeExplore> _explore = [
+  //   HomeExplore(
+  //     name: "Voucher Digital Indomaret",
+  //     price: 25000,
+  //     discountPercentage: 0,
+  //     image: "assets/icon/apple.svg",
+  //   ),
+  //   HomeExplore(
+  //     name: "Voucher Digital H&M",
+  //     price: 100000,
+  //     discountPercentage: 3,
+  //     image: "assets/icon/avocado.svg",
+  //   ),
+  //   HomeExplore(
+  //     name: "Voucher Digital H&M",
+  //     price: 100000,
+  //     discountPercentage: 3,
+  //     image: "assets/icon/banana.svg",
+  //   ),
+  //   HomeExplore(
+  //     name: "Voucher Digital Excelso",
+  //     price: 50000,
+  //     discountPercentage: 4,
+  //     image: "assets/icon/cherry.svg",
+  //   ),
+  //   HomeExplore(
+  //     name: "Voucher Digital Bakmi GM",
+  //     price: 100000,
+  //     discountPercentage: 5,
+  //     image: "assets/icon/coffee.svg",
+  //   ),
+  //   HomeExplore(
+  //     name: "Voucher Digital Haagen Dazs",
+  //     price: 100000,
+  //     discountPercentage: 25,
+  //     image: "assets/icon/dumbbell.svg",
+  //   ),
+  // ];
 
   final List<HomeBottomNavigationMenu> _homeBottomNavigationMenu = [
     HomeBottomNavigationMenu(
@@ -283,9 +280,7 @@ class _HomePageState extends State<HomePage> {
                 HomeCategorySection(
                   category: _categoryMenu,
                 ),
-                HomeExploreSection(
-                  explore: _explore,
-                ),
+                const HomeExploreSection(),
                 const SizedBox(
                   height: 40,
                 )

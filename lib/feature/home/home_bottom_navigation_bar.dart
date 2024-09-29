@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payung/feature/home/home_bottom_navigation_border_painter.dart';
-import 'package:payung/feature/home/model/home_bottom_navigation_menu.dart';
-import 'package:payung/widget/svg_asset.dart';
+import 'package:payung/feature/home/home_bottom_navigation_menu.dart';
+import 'package:payung/core/widget/svg_asset.dart';
 
 class HomeBottomNavigationBar extends StatefulWidget {
   final int selectedIndex;
@@ -20,7 +20,7 @@ class HomeBottomNavigationBar extends StatefulWidget {
 }
 
 class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
-  final _minSize = 0.1;
+  final _minSize = 0.12;
   final _maxSize = 0.3;
   final DraggableScrollableController _controller =
       DraggableScrollableController();
@@ -107,100 +107,87 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
             return Stack(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 14),
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: CustomPaint(
-                      painter: HomeBottomNavigationBorderPainter(),
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.0),
-                            topRight: Radius.circular(20.0),
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                            left: 2.0,
-                            right: 2.0,
-                            bottom: 2.0,
-                          ),
-                          child: GridView.builder(
-                            controller: scrollController,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3,
-                              childAspectRatio: 2,
-                            ),
-                            itemCount: widget.items.length,
-                            itemBuilder: (context, index) {
-                              return Card(
-                                color: Colors.white,
-                                elevation: 0,
-                                child: Column(
-                                  children: [
-                                    InkWell(
-                                      onTap: () {
-                                        closeSheet();
-                                        widget.onTapMenu(index);
-                                      },
-                                      customBorder: const CircleBorder(),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(2.0),
-                                        child: Column(
-                                          children: [
-                                            SvgAsset(
-                                              icon: widget.items[index].icon,
-                                              colorFilter:
-                                                  widget.selectedIndex == index
-                                                      ? ColorFilter.mode(
-                                                          Theme.of(context)
-                                                              .primaryColor,
-                                                          BlendMode.srcIn,
-                                                        )
-                                                      : const ColorFilter.mode(
-                                                          Colors.black,
-                                                          BlendMode.srcIn,
-                                                        ),
-                                            ),
-                                            Text(
-                                              widget.items[index].label,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodySmall
-                                                  ?.copyWith(
-                                                    color:
-                                                        widget.selectedIndex ==
-                                                                index
-                                                            ? Theme.of(context)
-                                                                .primaryColor
-                                                            : Colors.black,
-                                                  ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
-                          ),
+                  padding: const EdgeInsets.only(top: 30.0),
+                  child: CustomPaint(
+                    painter: HomeBottomNavigationBorderPainter(),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20.0),
+                          topRight: Radius.circular(20.0),
                         ),
                       ),
                     ),
                   ),
                 ),
+                GridView.builder(
+                  controller: scrollController,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisExtent: 40,
+                    crossAxisCount: 3,
+                    childAspectRatio: 1,
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 16,
+                  ),
+                  itemCount: widget.items.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      color: Colors.white,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              closeSheet();
+                              widget.onTapMenu(index);
+                            },
+                            customBorder: const CircleBorder(),
+                            child: Column(
+                              children: [
+                                SvgAsset(
+                                  icon: widget.items[index].icon,
+                                  colorFilter: widget.selectedIndex == index
+                                      ? ColorFilter.mode(
+                                          Theme.of(context).primaryColor,
+                                          BlendMode.srcIn,
+                                        )
+                                      : const ColorFilter.mode(
+                                          Colors.black,
+                                          BlendMode.srcIn,
+                                        ),
+                                ),
+                                Text(
+                                  widget.items[index].label,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall
+                                      ?.copyWith(
+                                        color: widget.selectedIndex == index
+                                            ? Theme.of(context).primaryColor
+                                            : Colors.black,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
                 Align(
                   alignment: Alignment.topCenter,
-                  child: GestureDetector(
-                    onTap: toggleSheet,
-                    child: Icon(
-                      _isExpanded
-                          ? Icons.keyboard_arrow_down
-                          : Icons.keyboard_arrow_up,
-                      size: 32,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 12.0),
+                    child: GestureDetector(
+                      onTap: toggleSheet,
+                      child: Icon(
+                        _isExpanded
+                            ? Icons.keyboard_arrow_down
+                            : Icons.keyboard_arrow_up,
+                        size: 32,
+                      ),
                     ),
                   ),
                 ),

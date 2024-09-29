@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:payung/feature/home/home_menu_card.dart';
-import 'package:payung/feature/home/model/home_menu.dart';
+import 'package:payung/feature/home/home_menu.dart';
 
-import '../../widget/text_icon_button.dart';
-import '../../widget/title_section.dart';
+import '../../../core/widget/text_icon_button.dart';
+import '../../../core/widget/title_section.dart';
 
 class HomeCategorySection extends StatelessWidget {
   final List<HomeMenu> category;
